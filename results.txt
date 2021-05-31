@@ -1,0 +1,7 @@
+training set:
+MAE:  34.40 kcal/mol
+RMSE: 53.18 kcal/mol
+
+test set:
+MAE:  34.19 kcal/mol
+RMSE: 52.46 kcal/mol
