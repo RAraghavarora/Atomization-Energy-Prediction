@@ -30,8 +30,8 @@ temp = np.arange(mini, maxi, 0.1)
 plt.plot(temp, temp)
 
 # Set axis labels
-plt.xlabel("True")
-plt.ylabel("Predicted")
+plt.xlabel("True Atomization Energy (kcal/mol)")
+plt.ylabel("Predicted Atomization Energy (kcal/mol")
 
 # Show only 3 values on the axes:
 # x_values = axes.get_xticks()
