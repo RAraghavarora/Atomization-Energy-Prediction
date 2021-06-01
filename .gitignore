@@ -1,1 +1,5 @@
 Dataset/
+__pycache__/
+ref/
+*.pyc
+*.pkl
