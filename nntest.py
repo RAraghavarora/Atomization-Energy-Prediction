@@ -14,7 +14,7 @@ split = int(3)  # test split for cross-validation (between 0 and 5)
 # --------------------------------------------
 # Load data and models
 # --------------------------------------------
-# if not os.path.exists('qm7.mat'):
+# if not os.path.exists('./Dataset/qm7.mat'):
 #     os.system('wget http://www.quantum-machine.org/data/qm7.mat')
 dataset = scipy.io.loadmat('./Dataset/qm7.mat')
 # nn = pickle.load(open('nn-%d.pkl' % split, 'r'))

@@ -20,7 +20,7 @@ hist = 0.1    # fraction of the history to be remembered
 # Load data
 # --------------------------------------------
 numpy.random.seed(seed)
-dataset = scipy.io.loadmat('./Dataset/qm7.mat')
+dataset = scipy.io.loadmat('./Dataset/qm7.mat')  # Using QM7 dataset
 
 # --------------------------------------------
 # Extract training data
@@ -49,7 +49,7 @@ for i in range(1, 1000001):
     if i > 500:
         lr = 0.0025
     if i > 2500:
-        lr = 0.005
+        lr = 0.005  # Change this!
     if i > 12500:
         lr = 0.01
 
