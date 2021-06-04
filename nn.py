@@ -51,7 +51,7 @@ class Input(Module):
 
     def realize(self, X):
         def _realize_(x):
-            inds = numpy.argsort(-(x**2).sum(axis=0)**.5 + numpy.random.normal(0, self.noise, x[0].shape))
+            inds = numpy.argsort(-(x**2).sum(axis=0)**.5 + numpy.random.normal(0, self.noise, x[0].shape))  # Randomly Sorted Coulomb matrix => Sort via L2 norm + added noise
             x = x[inds, :][:, inds] * 1
             x = x.flatten()[self.triuind]
             return x
