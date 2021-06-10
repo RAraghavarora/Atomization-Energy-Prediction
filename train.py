@@ -68,8 +68,8 @@ X_test = scaler.transform(X_test)
 
 # Start the learning rate from 10^(-4) and going on till 10^(-6)
 # lr = lr0/(1+kt) where lr, k are hyperparameters and t is the iteration number
-lr0 = 10**(-4)
 epochs = 20000
+lr0 = 10**(-4)
 decay_rate = 99 / epochs 
 momentum = 0.8
 sgd = keras.optimizers.SGD(learning_rate=lr0, momentum=momentum, decay=decay_rate, nesterov=False)
@@ -104,17 +104,13 @@ def build_model(hp):
 tuner = Hyperband(
     build_model,
     objective='val_mae',
-    max_epochs=20,
+    max_epochs=10000,
     factor=3,
     directory='tuner_data/',
     project_name='atomization_energy_prediction')
 
-stop_early = tf.keras.callbacks.EarlyStopping(monitor='val_mae', patience=350)
-
-# K.set_session(K.tf.Session(config=K.tf.ConfigProto(intra_op_parallelism_threads=jobs, inter_op_parallelism_threads=jobs)))
-
-
-# fitted = model.fit(X_train, y_train, epochs=epochs, batch_size=mb, verbose=1)
+# If the mae does not change by at least 2 units over a span of 100 epochs, stop the training.
+stop_early = tf.keras.callbacks.EarlyStopping(monitor='val_mae', min_delta=2, patience=100)
 
 tuner.search(X_train, y_train, epochs=epochs, validation_split=0.33, batch_size=mb, verbose=1, callbacks=[stop_early])
 best_hps = tuner.get_best_hyperparameters(num_trials=1)[0]
@@ -127,7 +123,12 @@ layer is {best_hps.get('unit1')} and the 2nd layer is {best_hps.get('unit2')}
 
 # Build the model
 model = tuner.hypermodel.build(best_hps)
-fitted = model.fit(X_train, y_train, epochs=epochs, validation_split=0.33, batch_size=mb, verbose=1)
+
+# If the mae does not change by at least 2 units over a span of 100 epochs, stop the training.
+stop_early = tf.keras.callbacks.EarlyStopping(monitor='val_mae', min_delta=2, patience=100)
+
+# Train the model
+fitted = model.fit(X_train, y_train, epochs=epochs, validation_split=0.33, batch_size=mb, verbose=1, callbacks=[stop_early])
 
 pdb.set_trace()
 
