@@ -1,3 +1,27 @@
+128, 1024:
+Total: 355 epochs (Before early stopping)
 SMAE on the test set is 1131.052001953125
 MAE on the test set is 23.316438674926758
+STD of the property is 225.37940979003906
+
+480, 1024
+Total: 189 epochs (Before early stopping)
+SMAE on the test set is 396100.34375
+MAE on the test set is 195.25286865234375
+STD of the property is 225.37940979003906
+
+1252, 1092:
+SMAE on the test set is 1452.8314208984375
+MAE on the test set is 22.510520935058594
+STD of the property is 225.37940979003906
+
+82, 1857:
+SMAE on the test set is 3909.72509765625
+MAE on the test set is 27.54266357421875
+STD of the property is 225.37940979003906
+
+1107,2047,2047:
+relu, sigmoid, relu
+SMAE on the test set is 715.16552734375
+MAE on the test set is 17.419677734375
 STD of the property is 225.37940979003906

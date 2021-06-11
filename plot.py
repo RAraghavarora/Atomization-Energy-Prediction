@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-f = open("keras_output.txt", 'r')
+f = open("keras_output_3.txt", 'r')
 lines = f.readlines()
 # plt.locator_params(axis='y', nbins=2)
 # plt.locator_params(axis='x', nbins=2)
