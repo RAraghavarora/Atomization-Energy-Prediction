@@ -25,3 +25,19 @@ relu, sigmoid, relu
 SMAE on the test set is 715.16552734375
 MAE on the test set is 17.419677734375
 STD of the property is 225.37940979003906
+
+SMAE on the test set is 963.5350341796875
+MAE on the test set is 20.698469161987305
+STD of the property is 225.37940979003906
+
+
+SMAE on the test set is 880.6416625976562
+MAE on the test set is 18.778900146484375
+STD of the property is 225.37940979003906
+
+
+2046, 1386, 2046
+sigmoid,tanh,relu
+SMAE on the test set is 384.9605712890625
+MAE on the test set is 14.514823913574219
+STD of the property is 226.3096923828125
