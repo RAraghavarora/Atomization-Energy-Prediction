@@ -1,25 +1,25 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-f = open("keras_output_3.txt", 'r')
+f = open("../keras_output_f2.txt", 'r')
 lines = f.readlines()
 # plt.locator_params(axis='y', nbins=2)
 # plt.locator_params(axis='x', nbins=2)
 axes = plt.axes()
 
-mini = int(lines[0].split(',')[0])
-maxi = int(lines[0].split(',')[0])
+mini = float(lines[0].split(',')[0])
+maxi = float(lines[0].split(',')[0])
 x = []
 y = []
 
 for line in lines:
     x1, y1 = line.split(',')
-    x.append(int(x1)) 
-    y.append(int(y1))
-    if int(x1) < mini:
-        mini = int(x1)
-    if int(x1) > maxi:
-        maxi = int(x1)
+    x.append(float(x1)) 
+    y.append(float(y1))
+    if float(x1) < mini:
+        mini = float(x1)
+    if float(x1) > maxi:
+        maxi = float(x1)
 
 plt.plot(x, y, 'ro')
 
